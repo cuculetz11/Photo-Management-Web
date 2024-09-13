@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link href="../public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Website CSS -->
+  <link rel="stylesheet" type="text/css" href="../public/style.css">
+  {% block head %}{% endblock %}
+  <link rel="icon" href="../public/images/cars.png" type="image/png">
+  <title>{% block title %}{% endblock %} - OnlyCars</title>
+</head>
+<body>
+  <!-- Adaugă containerul de fundal blurat -->
+  <div class="background-container"></div>
+  <header class="site-header">
+    <!-- This is the menu -->
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <img src="../public/images/cars-removebg-preview.png" id="nav-image" class="img-fluid d-none d-md-block" alt="Logo">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+  
+            <a class="nav-item nav-link active" href="/auth">Home</a>
+            <a class="nav-item nav-link" href="/upload">
+              <button class="btn btn-orange">Upload Photo</button>
+            </a>
+          </div>
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="/about">About</a>
+            <div class="nav-item dropdown">
+              <a class="nav-link" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+              <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                {% if session.get("user_authenticated") %}
+                  <p class="dropdown-item">You are signed in as {{ session.get("username") }}</p>
+                  <a class="dropdown-item" href="/logout">Logout</a>
+                {% else %}
+                  <a class="dropdown-item" href="/account-details">Login</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Main container follows (with main content + right sidebar) -->
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Content -->
+        {% block main_content %}{% endblock %}
+      </div>
+    </div>
+  </main>
+  <!-- Include Bootstrap script -->
+  <script src="../public/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var loginLink = document.getElementById('loginDropdown');
+      var dropdownMenu = loginLink.nextElementSibling;
+
+      loginLink.addEventListener('mouseover', function() {
+        dropdownMenu.style.display = 'block';
+      });
+
+      loginLink.addEventListener('mouseout', function() {
+        setTimeout(function() {
+          if (!dropdownMenu.matches(':hover')) {
+            dropdownMenu.style.display = 'none';
+          }
+        }, 300);
+      });
+
+      dropdownMenu.addEventListener('mouseleave', function() {
+        dropdownMenu.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

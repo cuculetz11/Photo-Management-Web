@@ -1,0 +1,15 @@
+Cucu Viorel-Cosmin 314CA
+IAP Assignment: Photo management web app
+
+
+    Pot spune ca e primul proiect in HTML(plus CSS) de asa marime. Pentru paginile
+web m am straduit cat am putut. Practic eu am 2 base-uri de la care am plecat:
+primul este cel in care nu sunt inca autentificat, iar celalat este pentru momentul
+in care sunt autentificat si am dreptul de a da upload la poze.
+    Pentru a nu scrie mereu tot scheletul din base in care am fundalul bara de navi
+in toate paginile am folosit jinja2
+    Cat despre backend, m am luat cat am putut dupa laboratoare(vorbesc de fisierul server.py),
+dar apoi am avut nevoie de ajutoare, dar macar am inteles cat de cat ce se intampla acolo.
+    Cu Docker, am containerizat aplicația noastră Flask, asigurând astfel portabilitate.
+    Chiar daca este o perioada extrem de aglomerata, aceasta tema mi s a parut chiar interesanta
+si am inercat sa i acord cat de mult timp am putut. 

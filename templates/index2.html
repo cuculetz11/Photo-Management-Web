@@ -1,0 +1,27 @@
+{% extends "base2.html" %}
+
+{% block title %}
+Home - OnlyCars
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block main_content %}
+<div class="container">
+  <div class="img-gallery">
+    {% for category, images in gallery.items() %}
+      <div class="category">
+        <h2>{{ category|capitalize }}</h2>
+        <div class="thumbnails">
+          {% for image in images %}
+            <a href="{{ url_for('static', filename='uploads/' ~ category ~ '/' ~ image) }}" target="_blank">
+              <img src="{{ url_for('static', filename='uploads/' ~ category ~ '/thumbnails/' ~ image) }}" alt="{{ image }}">
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

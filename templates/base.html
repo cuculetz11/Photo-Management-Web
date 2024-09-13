@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link href="../public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Website CSS -->
+  <link rel="stylesheet" type="text/css" href="../public/style.css">
+
+  {% block head %}
+  {% endblock %}
+  
+  <link rel="icon" href="../public/images/cars.png" type="image/png">
+  <title>{% block title %}{% endblock %} - OnlyCars</title>
+</head>
+<body>
+  <!-- Adaugă containerul de fundal blurat -->
+  <div class="background-container"></div>
+  
+  <header class="site-header">
+    <!-- This is the menu -->
+    <nav class="navbar navbar-expand-md navbar-dark">
+     
+      <img src="../public/images/cars-removebg-preview.png" id="nav-image" class="img-fluid d-none d-md-block" alt="Logo">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link active" href="/">Home</a>
+              </div>
+              <div class="navbar-nav ml-auto">
+                  <a class="nav-item nav-link" href="/about">About</a>
+                  <a class="nav-item nav-link" href="/login" id="login">Login</a>
+              </div>
+          </div>
+      </div>
+  </nav>
+  
+  </header>
+
+  <!-- Main container follows (with main content + right sidebar) -->
+  <main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Content -->
+            {% block main_content %}{% endblock %}
+        </div>
+    </div>
+</main>
+
+  <!-- Include Bootstrap script -->
+  <script src="../public/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
